@@ -197,28 +197,21 @@ align=center
 4. 切换到全Module运行状态：点击Tools->Mazda->To All。等待任务运行完毕即可。
 
 5. 切换到单Module运行状态。需要如下几个步骤
-	* 点击
-Tools——>Mazda——>To Single。稍等一会后，会弹出如下的对话框：
 
-
+	*  点击Tools——>Mazda——>To Single。稍等一会后，会弹出如下的对话框，该单选对话框用于选择需要独立运行的模块：
+	
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png"
 width="200"
 align=center
 />
-
-
-该单选对话框用于选择需要独立运行的模块。
-	*  接来下会弹出如下对话框：
+	*  接来下会弹出如下对话框，该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中：
 	
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png"
 width="200"
 align=center
 />
-
-	
-该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中。
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
 	
 <center>
