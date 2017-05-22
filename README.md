@@ -2,12 +2,12 @@
 
 ## 总体框架
 
-<div align=center>
+
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E5%8C%96%E6%A1%86%E6%9E%B6.png"
 width="600"
 />
-</div>
+
 
 
 ## 基础服务层
@@ -24,28 +24,27 @@ width="600"
 
 #### lib_tools
 
-	底层工具：提供通用的**与android无关的java方法**。如：日志，加密。目标是聚合通用方法，能够以jar格式，在公司各个app项目之间通用。
+底层工具：提供通用的**与android无关的java方法**。如：日志，加密。目标是聚合通用方法，能够以jar格式，在公司各个app项目之间通用。
 	
-		Deprecated:由于项目的迭代和技术的发展，现阶段很难规定一些不会改变的底层方法，能够一直的服务于所有的项目。比如现有的LogUtil方法，很可能在未来改造其实现，添加其他功能，比如：异步输出，本地缓存...
-		该模块中的内容将会移动到lib_basic_module中，作为对外的服务。
+>    Deprecated:由于项目的迭代和技术的发展，现阶段很难规定一些不会改变的底层方法，能够一直的服务于所有的项目。比如现有的LogUtil方法，很可能在未来改造其实现，添加其他功能，比如：异步输出，本地缓存...该模块中的内容将会移动到lib_basic_module中，作为对外的服务。
 
 ####  lib_domain
 
-	底层模型：提供最底层的数据模型。通用的数据模型通常会在各个业务模块间通用的数据模型会放在该层中。**子业务模块独有的数据模型不能放在该层。**可以放在其中的数据模型如下图：
+底层模型：提供最底层的数据模型。通用的数据模型通常会在各个业务模块间通用的数据模型会放在该层中。**子业务模块独有的数据模型不能放在该层。**可以放在其中的数据模型如下图：
 	
 
 #### lib_domain包括：
 
-<div align=center>
+
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/lib_domain_java.png"
 />
-</div>
 
-	domain:业务数据模型。
-	event:rxBux事件
-	request：网络请求数据 
-	response：网络返回数据
+
+domain:业务数据模型。
+event:rxBux事件
+request：网络请求数据 
+response：网络返回数据
 	
 ####  lib_rpc
    
@@ -76,8 +75,8 @@ width="800"
 
 基础层：包含了项目的基础服务+模块的基础架构。**提供全局的与具体业务无关的组件方法**.
 
-	基础服务包括：数据库，图片加载，网络调用，tinker补丁，定位，埋点，toast提示，推送，权限...等等.
-	基础架构包括:Activity Fragment的基类，adapter的基类，各种控件的基类，appliatoin的基类...等
+基础服务包括：数据库，图片加载，网络调用，tinker补丁，定位，埋点，toast提示，推送，权限...等等.
+基础架构包括:Activity Fragment的基类，adapter的基类，各种控件的基类，appliatoin的基类...等
 
 
 
@@ -214,13 +213,13 @@ align=center
 />
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
 	
-<center>
+
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png"
 width="400"
  align=center
 />
-</center>
+
 
 
 ## 存在的问题和新的方向
@@ -229,8 +228,8 @@ width="400"
 
 1、rpc的核心是使用反射的手段，使不同的模块间能够进行方法调用。方法调用有一个缺陷是，对于异步的请求，不能够实现很好的回调。
 
-		现在一个中庸的解决方案是：在定义模块的对外接口的时候，方法中传入一个Action，作为调用获得结果后的回调处理。而回调则是通过RxBuss来定义event来实现的。且该RxBus得subscrption需要绑定到外部调用真者的activity的生命周期中(确保该activity被销毁后，不会执行回调)。例子：ISeekModule中的createSourceModifyIntent方法).
-		该方案依然会带来问题：1.较多的event定义类；2.代码碎片化(回调处要post一个event出去)；3.调用者必须传入activity用于suscrition的生命周期管理。
+>   现在一个中庸的解决方案是：在定义模块的对外接口的时候，方法中传入一个Action，作为调用获得结果后的回调处理。而回调则是通过RxBuss来定义event来实现的。且该RxBus得subscrption需要绑定到外部调用真者的activity的生命周期中(确保该activity被销毁后，不会执行回调)。例子：ISeekModule中的createSourceModifyIntent方法).
+    该方案依然会带来问题：1.较多的event定义类；2.代码碎片化(回调处要post一个event出去)；3.调用者必须传入activity用于suscrition的生命周期管理。
 
 2、lib_basic_biz中聚集了很多的小的通用业务类，还有方法类等。在以后业务逐庞大后，该module难以满足大家的需求。 现阶段由于业务体量还不是很大，所以该设计轻巧便捷。若日后通用的业务组件加多的时候，我们可以考虑把这块分一分，既把业务分组。
  
