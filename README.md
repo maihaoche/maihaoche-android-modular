@@ -7,6 +7,7 @@
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E5%8C%96%E6%A1%86%E6%9E%B6.png"
 width="600"
 />
+</div>
 
 
 ## 基础服务层
@@ -39,12 +40,13 @@ width="600"
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/lib_domain_java.png"
 />
+</div>
 
+	domain:业务数据模型。
+	event:rxBux事件
+	request：网络请求数据 
+	response：网络返回数据
 	
-		domain:业务数据模型。
-		event:rxBux事件
-		request：网络请求数据 
-		response：网络返回数据
 ####  lib_rpc
    
    模块间调用连接器。架构如下：
@@ -169,7 +171,11 @@ width="700"
 使用教程：
 
 1. 从Android Studio内置插件浏览器中搜索Mazda,并安装重启：
-![搜索Mazda](http://of8cu1h2w.bkt.clouddn.com/%E6%90%9C%E7%B4%A2mazda.png =600x)
+
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E6%90%9C%E7%B4%A2mazda.png"
+width="800"
+/>
 
 2. 安装完插件并且重新启动Android Studio后，再次启动进来，并等项目加载完毕后，点击菜单Tools，下拉列表中会多出一个Mazda的选项，点击并在展开的列表中选择Configure：
 
@@ -185,7 +191,7 @@ width="600"
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png"
 width="400"
 />
-   <div>
+   </div>
 
 4. 切换到全Module运行状态：点击Tools->Mazda->To All。等待任务运行完毕即可。
 
@@ -198,7 +204,7 @@ Tools——>Mazda——>To Single。稍等一会后，会弹出如下的对话�
 src= "http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png"
 width="200"
 />
-   <div>
+   </div>
 
 该单选对话框用于选择需要独立运行的模块。
 	*  接来下会弹出如下对话框：
@@ -208,7 +214,7 @@ width="200"
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png"
 width="200"
 />
-<div>
+</div>
 	
 该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中。
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
@@ -218,7 +224,7 @@ width="200"
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png"
 width="400"
 />
-   <div>
+   </div>
 
 	
 
