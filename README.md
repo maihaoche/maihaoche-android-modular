@@ -81,7 +81,7 @@ width="800"
 
 
 
-##公共业务层
+## 公共业务层
 
 *作用：*
 
@@ -103,7 +103,7 @@ width="800"
 提供app升级的业务子模块。与lib_photo定位相同。
 
 
-##业务模块层
+## 业务模块层
 ##### module_auth：认证业务
 ##### module_dms：dms业务
 ##### module_loan：订单贷业务
@@ -114,7 +114,7 @@ width="800"
 ##### module_source_new：车源业务
 ##### module_trade：交易业务
 
-##Build.gradle统一配置
+## Build.gradle统一配置
 分模块后，build.gradle的文件也需要统一管理。具体实践：
 1.所有子模块的build.gradle 文件都必须在开头引用lib_gradle_scripts模块中的subModuleHeader.gradle文件；
 2.由于subModuleHeader.gradle完成了所有的通用配置，包括版本，签名，混淆等和dependency中的部分通用依赖。所以引用了之后，子模块的build.gradle只需要填写自身特有的配置，比如manifestPlaceholders，以及独有的依赖。
@@ -145,7 +145,7 @@ width="800"
 	//single app的单独配置项。当该子模块配置了独立运行的逻辑时，需要改方法使其生效。
 	globleConfigure()
 
-##模块独立运行
+## 模块独立运行
 项目模块数增长后，开发时的编译就会非常耗时。为了提高开发时的效率，设计了一种以AAR依赖为核心的设计，使得我们在开发的过程中，可以让某个业务模块作为独立的app运行，大大提高开发效率。
 从多模块编译，到独立模块编译的示意图如下：
 
@@ -162,7 +162,7 @@ width="700"
 > 由于脚本都是gradle的一些语法，所以不做具体介绍了。可以参考工程根目录下的build.gradle中定义的turnToSingleModule 这个task及其注解。下面就简单介绍一下我们的插件。
 
 
-##单Module插件助手
+## 单Module插件助手
 
 [MazDa](https://github.com/WangYangYang2014/MaiHaoCheMazDa)
 
@@ -186,12 +186,13 @@ width="600"
 
 
 3. 配置参数。点击Configure后会弹出如下的参数设置窗口：
-<div align=center>
-   <img 
+
+  <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png"
 width="400"
+align=center
 />
-   </div>
+ 
 
 4. 切换到全Module运行状态：点击Tools->Mazda->To All。等待任务运行完毕即可。
 
@@ -199,37 +200,38 @@ width="400"
 	* 点击
 Tools——>Mazda——>To Single。稍等一会后，会弹出如下的对话框：
 
-<div align=center>
+
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png"
 width="200"
+align=center
 />
-   </div>
+
 
 该单选对话框用于选择需要独立运行的模块。
 	*  接来下会弹出如下对话框：
 	
-<div align=center>
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png"
 width="200"
+align=center
 />
-</div>
+
 	
 该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中。
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
 	
-<div align=center>
+<center>
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png"
 width="400"
+ align=center
 />
-   </div>
+</center>
 
-	
 
-##存在的问题和新的方向
-####问题
+## 存在的问题和新的方向
+#### 问题
 现阶段的组件化方案，既满足了代码分离解构，同时又加快了开发效率，能够较好得支持团队业务的推进。但是仍然存在几个问题:
 
 1、rpc的核心是使用反射的手段，使不同的模块间能够进行方法调用。方法调用有一个缺陷是，对于异步的请求，不能够实现很好的回调。
@@ -239,7 +241,7 @@ width="400"
 
 2、lib_basic_biz中聚集了很多的小的通用业务类，还有方法类等。在以后业务逐庞大后，该module难以满足大家的需求。 现阶段由于业务体量还不是很大，所以该设计轻巧便捷。若日后通用的业务组件加多的时候，我们可以考虑把这块分一分，既把业务分组。
  
-####方向
+#### 方向
 Android的终极解决方案就要来了，那就是Kotlin！
 
 有了Kotlin，rpc的设计更加优雅，参数无需对象类型，可通过类型推导。
@@ -248,7 +250,7 @@ Android的终极解决方案就要来了，那就是Kotlin！
 所以我们的口号是：学好Kotlin，一个顶两没问题！
 
 
-##总结
+## 总结
 
 组件化告一段落，全面向Kotlin过渡。
 
