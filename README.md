@@ -1,9 +1,15 @@
-#组件化技术文档
+# 组件化技术文档
 
-##总体框架
-![image](http://of8cu1h2w.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E5%8C%96%E6%A1%86%E6%9E%B6.png =600x)
+## 总体框架
 
-##基础服务层
+<div align=center>
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E7%BB%84%E4%BB%B6%E5%8C%96%E6%A1%86%E6%9E%B6.png"
+width="600"
+/>
+
+
+## 基础服务层
 基础服务层是项目的基础架构，目前包含了4个模块，从下到上形成一个模块依赖链。
 
 *作用：*
@@ -27,8 +33,12 @@
 	底层模型：提供最底层的数据模型。通用的数据模型通常会在各个业务模块间通用的数据模型会放在该层中。**子业务模块独有的数据模型不能放在该层。**可以放在其中的数据模型如下图：
 	
 
-[lib_domain包：]<div align=center>
-![image](http://of8cu1h2w.bkt.clouddn.com/lib_domain_java.png)	</div>
+#### lib_domain包括：
+
+<div align=center>
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/lib_domain_java.png"
+/>
 
 	
 		domain:业务数据模型。
@@ -39,7 +49,10 @@
    
    模块间调用连接器。架构如下：
    
-   ![image](http://of8cu1h2w.bkt.clouddn.com/rpc%E6%A1%86%E6%9E%B6.png =800x)  
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/rpc%E6%A1%86%E6%9E%B6.png"
+width="800"
+/>
    
    简单来说，要实现从其他模块调用ModuleA，需要如下几步：
 
@@ -133,7 +146,12 @@
 ##模块独立运行
 项目模块数增长后，开发时的编译就会非常耗时。为了提高开发时的效率，设计了一种以AAR依赖为核心的设计，使得我们在开发的过程中，可以让某个业务模块作为独立的app运行，大大提高开发效率。
 从多模块编译，到独立模块编译的示意图如下：
-![image](http://of8cu1h2w.bkt.clouddn.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%9D%97%E7%A4%BA%E6%84%8F%E5%9B%BE.png =700x)
+
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E7%8B%AC%E7%AB%8B%E6%A8%A1%E5%9D%97%E7%A4%BA%E6%84%8F%E5%9B%BE.png"
+width="700"
+/>
+
 除了手动进行该配置外，我们优化了独立模块运行的切换手段：
 
 * 使用gradle 的task，在控制台运行带参数的脚本任务。
@@ -154,38 +172,54 @@
 ![搜索Mazda](http://of8cu1h2w.bkt.clouddn.com/%E6%90%9C%E7%B4%A2mazda.png =600x)
 
 2. 安装完插件并且重新启动Android Studio后，再次启动进来，并等项目加载完毕后，点击菜单Tools，下拉列表中会多出一个Mazda的选项，点击并在展开的列表中选择Configure：
-![image](http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E9%85%8D%E7%BD%AE.png  =600x)
+
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E9%85%8D%E7%BD%AE.png"
+width="600"
+/>
+
 
 3. 配置参数。点击Configure后会弹出如下的参数设置窗口：
 <div align=center>
-![4. ](http://of8cu1h2w.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png =400x)
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png"
+width="400"
+/>
    <div>
-<div align=left>
-<div>
+
 4. 切换到全Module运行状态：点击Tools->Mazda->To All。等待任务运行完毕即可。
 
 5. 切换到单Module运行状态。需要如下几个步骤
 	* 点击
 Tools——>Mazda——>To Single。稍等一会后，会弹出如下的对话框：
+
 <div align=center>
-![image](http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png =200x)
-<div>
-<div align=left>
-<div>
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png"
+width="200"
+/>
+   <div>
+
 该单选对话框用于选择需要独立运行的模块。
 	*  接来下会弹出如下对话框：
+	
 <div align=center>
-![image](http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png =200x)
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png"
+width="200"
+/>
 <div>
-<div align=left>
-<div>
+	
 该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中。
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
+	
 <div align=center>
-![image](http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png =400x)
-<div>
-<div align=left>
-<div>	
+   <img 
+src= "http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png"
+width="400"
+/>
+   <div>
+
 	
 
 ##存在的问题和新的方向
