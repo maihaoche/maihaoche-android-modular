@@ -189,7 +189,6 @@ width="600"
   <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%85%8D%E7%BD%AE.png"
 width="400"
-align=center
 />
  
 
@@ -202,14 +201,12 @@ align=center
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E5%8D%95module%E9%80%89%E6%8B%A9.png"
 width="200"
-align=center
 />
 	*  接来下会弹出如下对话框，该复选对话框是选择需要以AAR形式添加到之前的单module的依赖中：
 	
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E9%80%89%E6%8B%A9%E4%BE%9D%E8%B5%96.png"
 width="200"
-align=center
 />
 	*  然后等待任务执行完成，最后Android Studio会弹出如下提示窗口，点击确定即可：
 	
@@ -217,7 +214,6 @@ align=center
    <img 
 src= "http://of8cu1h2w.bkt.clouddn.com/%E7%A1%AE%E5%AE%9A.png"
 width="400"
- align=center
 />
 
 
