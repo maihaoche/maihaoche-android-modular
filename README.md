@@ -224,8 +224,8 @@ width="400"
 
 1、rpc的核心是使用反射的手段，使不同的模块间能够进行方法调用。方法调用有一个缺陷是，对于异步的请求，不能够实现很好的回调。
 
->   现在一个中庸的解决方案是：在定义模块的对外接口的时候，方法中传入一个Action，作为调用获得结果后的回调处理。而回调则是通过RxBuss来定义event来实现的。且该RxBus得subscrption需要绑定到外部调用真者的activity的生命周期中(确保该activity被销毁后，不会执行回调)。例子：ISeekModule中的createSourceModifyIntent方法).
-    该方案依然会带来问题：1.较多的event定义类；2.代码碎片化(回调处要post一个event出去)；3.调用者必须传入activity用于suscrition的生命周期管理。
+>   现在一个中庸的解决方案是：在定义模块的对外接口的时候，方法中传入一个Action，作为调用获得结果后的回调处理。而回调则是通过RxBus来定义event来实现的。且该RxBus得subscrption需要绑定到外部调用真者的activity的生命周期中(确保该activity被销毁后，不会执行回调)。例子：ISeekModule中的createDepositModifyIntentOnPublishSource方法).
+    该方案依然会带来问题：1.较多的event定义类；2.代码碎片化(回调处要post一个event出去)；3.调用者必须传入activity用于subscription的生命周期管理。
 
 2、lib_basic_biz中聚集了很多的小的通用业务类，还有方法类等。在以后业务逐庞大后，该module难以满足大家的需求。 现阶段由于业务体量还不是很大，所以该设计轻巧便捷。若日后通用的业务组件加多的时候，我们可以考虑把这块分一分，既把业务分组。
  
